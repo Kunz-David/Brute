@@ -25,6 +25,37 @@ end
 
 @enum Runstatus ran skipped not_ran
 
+"""
+    Test(id, student_call, teacher_call; kwargs...)
+
+kwargs:
+- id::Int
+- name::String = "Test #$id"
+- maxpoints::Int = 1
+- optionality::Optionality = mandatory
+- access::Access = private
+- description::String = "#$id is $access and $optionality (max. $maxpoints point(s))."
+- passed_description::String = "Nice! $access test passed! 🎉"
+- failed_description::String = "Yikes! $access test failed. 😞 Try the following..."
+- runstatus::Runstatus = not_ran
+- passed::Bool = false
+- student_call::String
+- teacher_call::String
+- student_result::Union{RunResult,Nothing}
+- teacher_result::Union{RunResult,Nothing}
+
+To maximize your usage of Test, consider specifying the following:
+- id::Int
+- name::String = "Test #$id"
+- maxpoints::Int = 1
+- optionality::Optionality = mandatory
+- access::Access = private
+- description::String = "#$id is $access and $optionality (max. $maxpoints point(s))."
+- passed_description::String = "Nice! $access test passed! 🎉"
+- failed_description::String = "Yikes! $access test failed. 😞 Try the following..."
+
+These can be passed to the `@test` macro as a named tuple (eg. `(optionality=optional, maxpoints=2)`).
+"""
 Base.@kwdef mutable struct Test
     id::Int
     name::String = "Test #$id"
