@@ -31,13 +31,15 @@ test1 = @test evaluation student.pdf(student.Gauss(1, 2), 1) teacher.pdf(teacher
 
 
 #-------------------------
-test2 = @test evaluation student.pdf(student.Gauss(1, 2), 1) teacher.pdf(teacher.Gauss(1, 2), 1) (optionality=mandatory, access=public) #onlymd
+test2 = @test evaluation student.pdf(student.Gauss(1, 2), 1) teacher.pdf(teacher.Gauss(1, 2), 11) (optionality=mandatory, access=public, maxpoints=123) #onlymd
 #-------------------------
 
 # the following test is for ...
 
+
+
 #------------------------
-@test evaluation student.pdf_mistake(student.Gauss(1, 2), 1) teacher.pdf(teacher.Gauss(1, 2), 1) (optionality=optional, access=private) #onlymd
+@test evaluation student.pdf_mistake(student.Gauss(1, 2), 1) teacher.pdf(teacher.Gauss(1, 2), 1) (optionality=optional, access=public) #onlymd
 #------------------------
 
 

@@ -60,44 +60,28 @@ Nice! public test passed! 🎉
 ````
 
 ````julia
-test2 = @test evaluation student.pdf(student.Gauss(1, 2), 1) teacher.pdf(teacher.Gauss(1, 2), 1) (optionality=mandatory, access=public) #onlymd
+test2 = @test evaluation student.pdf(student.Gauss(1, 2), 1) teacher.pdf(teacher.Gauss(1, 2), 11) (optionality=mandatory, access=public, maxpoints=123) #onlymd
 ````
 
 ````
-## Test #2 ✔️
+## Test #2 ❌
 
-*#2 is public and mandatory (max. 1 point(s)).*
+*#2 is public and mandatory (max. 123 point(s)).*
 
 ### Result
 
-Nice! public test passed! 🎉
+Yikes! public test failed. 😞 Try the following...
 
-<details>
-    <summary>
-    Results
-    </summary>
-
-| call                                | result                |
-|-------------------------------------|-----------------------|
-| teacher.pdf(teacher.Gauss(1, 2), 1) | `0.19947114020071635` |
-| student.pdf(student.Gauss(1, 2), 1) | `0.19947114020071635` |
+| call                                 | result                 |
+|--------------------------------------|------------------------|
+| teacher.pdf(teacher.Gauss(1, 2), 11) | `7.433597573671489e-7` |
+|  student.pdf(student.Gauss(1, 2), 1) |  `0.19947114020071635` |
 
 
-</details>
-
-
-
-<details>
-    <summary>
-    Your Output
-    </summary>
 
 ```
 
 ```
-
-
-</details>
 
 
 
@@ -106,23 +90,17 @@ Nice! public test passed! 🎉
 the following test is for ...
 
 ````julia
-@test evaluation student.pdf_mistake(student.Gauss(1, 2), 1) teacher.pdf(teacher.Gauss(1, 2), 1) (optionality=optional, access=private) #onlymd
+@test evaluation student.pdf_mistake(student.Gauss(1, 2), 1) teacher.pdf(teacher.Gauss(1, 2), 1) (optionality=optional, access=public) #onlymd
 ````
 
 ````
 ## Test #3 ❌
 
-*#3 is private and optional (max. 1 point(s)).*
+*#3 is public and optional (max. 1 point(s)).*
 
 ### Result
 
-Yikes! private test failed. 😞 Try the following...
-
-| call                                        | result                |
-|---------------------------------------------|-----------------------|
-|         teacher.pdf(teacher.Gauss(1, 2), 1) | `0.19947114020071635` |
-| student.pdf_mistake(student.Gauss(1, 2), 1) |  `1.1994711402007163` |
-
+Skipped ( - a previous mandatory test has failed).
 
 
 
@@ -134,27 +112,13 @@ Yikes! private test failed. 😞 Try the following...
 ````
 
 ````
-## Test #4 ✔️
+## Test #4 ❌
 
 *#4 is private and mandatory (max. 1 point(s)).*
 
 ### Result
 
-Nice! private test passed! 🎉
-
-<details>
-    <summary>
-    Results
-    </summary>
-
-| call                                | result                |
-|-------------------------------------|-----------------------|
-| teacher.pdf(teacher.Gauss(1, 2), 1) | `0.19947114020071635` |
-| student.pdf(student.Gauss(1, 2), 1) | `0.19947114020071635` |
-
-
-</details>
-
+Skipped ( - a previous mandatory test has failed).
 
 
 
@@ -168,17 +132,17 @@ print(create_summary(evaluation)) #onlymd
 ````
 # *Homework #1 - Summary:*
 
-**You have passed!**
+**You have not passed, please try again.**
 
-| name    | passed | status | gained | optionality | access    |
-|---------|--------|--------|--------|-------------|-----------|
-| Test #4 |   true |  `ran` |    1/1 | `mandatory` | `private` |
-| Test #2 |   true |  `ran` |    1/1 | `mandatory` |  `public` |
-| Test #3 |  false |  `ran` |    0/1 |  `optional` | `private` |
-| Test #1 |   true |  `ran` |    1/1 | `mandatory` |  `public` |
+| name    | passed | status    | gained | optionality | access    |
+|---------|--------|-----------|--------|-------------|-----------|
+| Test #4 |  false | `skipped` |    0/1 | `mandatory` | `private` |
+| Test #2 |  false |     `ran` |  0/123 | `mandatory` |  `public` |
+| Test #3 |  false | `skipped` |    0/1 |  `optional` |  `public` |
+| Test #1 |   true |     `ran` |    1/1 | `mandatory` |  `public` |
 
 
-Total points gained: 3
+Total points gained: 0
 
 ````
 

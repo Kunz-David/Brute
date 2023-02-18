@@ -43,8 +43,8 @@ student.f(2)
 f(2)
 teacher.f(2)
 
+using Brute
 evaluation = Evaluation(name="Homework #1", url="https://www.markdownguide.org/cheat-sheet/", maxpoints=10)
-named_tuple(evaluation)
 
 @test evaluation student.f(6) teacher.f(1) (optionality=optional,)
 

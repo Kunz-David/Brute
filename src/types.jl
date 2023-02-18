@@ -41,6 +41,8 @@ Base.@kwdef mutable struct Test
     student_result::Union{RunResult,Nothing}
     teacher_result::Union{RunResult,Nothing}
 end
+
+
 """
     Evaluation
 

@@ -14,7 +14,7 @@ Additional `Test` setting passed as a named tuple to `settings`
 @test evaluation student.f(1) student.f(2) (access=public)
 ```
 """
-macro Test(evaluation::Evaluation, stud_call, teach_call, settings)
+macro test(evaluation, stud_call, teach_call, settings)
     # settings = esc(settings)
     evaluation = esc(evaluation)
     stud_str = string(stud_call)

@@ -12,7 +12,9 @@ Base.@kwdef struct Gauss{T<:Real}
     end
 end
 
-pdf_mistake(d::Gauss, x::Real) = exp(-1 / 2 * ((x - d.μ) / d.σ)^2) / (d.σ * sqrt(2 * π)) + 1
+function pdf_mistake(d::Gauss, x::Real)
+    exp(-1 / 2 * ((x - d.μ) / d.σ)^2) / (d.σ * sqrt(2 * π)) + 1
+end
 
 pdf(d::Gauss, x::Real) = exp(-1 / 2 * ((x - d.μ) / d.σ)^2) / (d.σ * sqrt(2 * π))
 

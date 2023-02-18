@@ -1,53 +1,35 @@
 using Base: is_file_tracked
 using Brute
-using Test
+using Test: @test as @run_test, @testset
+
+
 
 # prevents error loggin in methods
 Base.CoreLogging.with_logger(Base.CoreLogging.NullLogger()) do
 
     @testset "Brute.jl" begin
-
-        # @brute "Name of the tested homework" begin
-        #     @description "Homework 1, will test some basic stuff"
-        #     @max_points 1
-
-
-
-        #     @test_group "test group name" begin
-        #         @title "title"
-        #         @type :Mandatory
-        #         @deps :list :of :depependent :test_groups
-        #         @description "now we will test functionality # 1"
-        #         @max_points 12
-
-
-
-        #     end
-
-        #     "basic_test.jl"
-        # end
         path = "student.jl"
         bad_path = "asdf.jl"
         wrong_path = "wrong_file.md"
 
         @testset "Metatests" begin
             # should work
-            @test file_exists(path)
-            @test is_file_runnable!(path)
+            @run_test file_exists(path)
+            @run_test is_file_runnable!(path)
             # nonexistant file
-            @test file_exists(bad_path) == false
-            @test is_file_runnable!(bad_path) == false
+            @run_test file_exists(bad_path) == false
+            @run_test is_file_runnable!(bad_path) == false
             # wrong file
-            @test file_exists(wrong_path)
-            @test is_file_runnable!(wrong_path) == false
+            @run_test file_exists(wrong_path)
+            @run_test is_file_runnable!(wrong_path) == false
         end
 
         @testset "Existance of types and methods" begin
             is_file_runnable!(path)
-            @test definition_exists(:pdf, Function)
-            @test definition_exists(:pdf, Type) == false
-            @test definition_exists(:Gauss, Type)
-            @test definition_exists(:Gauss, Function) == false
+            @run_test definition_exists(:pdf, Function)
+            @run_test definition_exists(:pdf, Type) == false
+            @run_test definition_exists(:Gauss, Type)
+            @run_test definition_exists(:Gauss, Function) == false
         end
 
         @testset "preprocessing" begin
@@ -81,8 +63,8 @@ Base.CoreLogging.with_logger(Base.CoreLogging.NullLogger()) do
                  #hide
                 #hideblock end #hide
                 """
-            @test Brute.remove_comments_fun(content) == content_no_comments
-            @test Brute.hide_hidden_blocks(content, remove_comments=false) == content_hidden_block_processed
+            @run_test Brute.remove_comments_fun(content) == content_no_comments
+            @run_test Brute.hide_hidden_blocks(content, remove_comments=false) == content_hidden_block_processed
         end
 
     end

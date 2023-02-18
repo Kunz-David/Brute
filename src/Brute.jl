@@ -22,7 +22,7 @@ include("basic_test_functions.jl")
 export file_exists, is_file_runnable!, definition_exists
 
 include("macros.jl")
-export Test, @get_res, @get_res_suppress
+export @test, @get_res, @get_res_suppress
 
 include("pocessing.jl")
 export hide_hidden_blocks, remove_comments
