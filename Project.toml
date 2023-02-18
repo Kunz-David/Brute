@@ -3,6 +3,15 @@ uuid = "752f060d-3016-44c4-afc7-6964a0c7390d"
 authors = ["Kunz-David <epicfail.davidkunz@gmail.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+DisplayAs = "0b91fe84-8a4c-11e9-3e1d-67c38462b6d6"
+IOCapture = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
+Literate = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
+Markdown = "d6f4376e-aef5-505a-96c1-9c027394607a"
+MarkdownTables = "1862ce21-31c7-451e-824c-f20fa3f90fa2"
+Parameters = "d96e819e-fc66-5662-9728-84c9c7592b0a"
+Suppressor = "fd094767-a336-5f1f-9728-57cf17d0bbfb"
+
 [compat]
 julia = "1.8"
 
